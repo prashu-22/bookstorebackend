@@ -1,9 +1,9 @@
 import express from 'express';
-import {mongoDBURL } from './config.js';
+import {PORT , mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
 import booksRoute from './routes/booksRoute.js';
 import cors from 'cors';
-const port = process.env.PORT || 4000;
+
 const app = express();
 
 // Middleware for parsing request body
@@ -32,7 +32,7 @@ mongoose
   .connect(mongoDBURL)
   .then( async () => {
     console.log('App connected to database');
-    await app.listen(port,"0.0.0.0", () => {
+    await app.listen(PORT,() => {
       console.log(`App is listening to port: ${PORT}`);
     });
   })
