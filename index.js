@@ -27,14 +27,14 @@ app.get('/', (request, response) => {
 });
 
 app.use('/books', booksRoute);
-
+app.listen(PORT,"0.0.0.0",() => {
+    console.log(`App is listening to port: ${PORT}`);
+  });
 mongoose
   .connect(mongoDBURL)
-  .then( async () => {
+  .then( () => {
     console.log('App connected to database');
-    await app.listen(PORT,"0.0.0.0",() => {
-      console.log(`App is listening to port: ${PORT}`);
-    });
+   
   })
   .catch((error) => {
     console.log(error);
