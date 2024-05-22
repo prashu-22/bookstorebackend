@@ -26,7 +26,7 @@ app.get('/', (request, response) => {
   return response.status(234).send('Welcome To MERN Stack Tutorial');
 });
 
-app.use('/books', booksRoute);
+
 app.listen(PORT,"0.0.0.0",() => {
     console.log(`App is listening to port: ${PORT}`);
   });
@@ -39,3 +39,5 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+
+app.use('/books', booksRoute);
